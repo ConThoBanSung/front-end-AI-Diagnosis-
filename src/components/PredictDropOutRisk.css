@@ -1,0 +1,40 @@
+/* PredictDropOutRisk.css */
+.prediction,
+.solution {
+    color: white; /* Thay đổi màu văn bản thành trắng */
+}
+
+.prediction h2,
+.solution h2 {
+    color: white; /* Thay đổi màu tiêu đề thành trắng */
+}
+
+.solution-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.solution-container h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.solution-container pre {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    overflow-x: auto;
+    white-space: pre-wrap; /* Allows wrapping */
+    word-wrap: break-word; /* Breaks long words */
+}
+
+.solution-container p {
+    font-size: 1em;
+    color: #555;
+}

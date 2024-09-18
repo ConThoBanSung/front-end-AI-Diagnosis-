@@ -1,0 +1,61 @@
+XIN CHÀO CÁC GIÁO VIÊN CŨNG NHƯ CÁC HỌC SINH ĐÃ ĐẾN VỚI WEB 
+__LƯU Ý : WEB NÀY CHUẨN ĐOÁN BẰNG AI VÀ CŨNG CẦN GIÁO VIÊN THEO DÕI THÊM ĐIỀU KIỆN CỦA HỌC SINH ĐỂ DỄ ĐƯA RA KẾT QUẢ TỐT NHẤT__
+
+- Đến với tính năng đầu tiên Predict Mental Health ( chuẩn đoán bệnh tâm lí) :
+Khi ấn vào web sẽ đưa các bạn tới đường link, tại đây các bạn có thể nhập các chỉ số như bên trong web :
+
+    StudentID: '', (ID Học sinh nếu có)
+    Gender: '', giới tính
+    Your_current_year_of_Study: '', năm học sinh viên ( nếu còn là học sinh thì có thể nhập từ 1 - 4)
+    Attendance_percent: '', thời gian xuất hiện trên lớp
+    Academic_Score: '', điểm tổng cuối kì
+    Extracurricular_Activities: '', mức độ Hoạt động ngoại khóa
+    Social_Interactions: '', mức độ giao tiếp xã hội
+    Behavior_Issues: '', mức độ hành vi
+    Stress_Level: '', mức độ trầm cảm ( có thể vì nhiều lí do trầm cảm khác )
+    Anxiety_Level: '', Mức độ lo lắng
+    Depression_Level: '', Mức độ trầm cảm (khác)
+    Sleep_Quality: '', mức độ ngủ 
+    Family_Support: '', gia đình có động viên hay không
+    Mental_Health_Counseling_Participation: '', Tham gia tư vấn sức khỏe tâm thần
+    Physical_Health_Issues: '',  Các vấn đề về sức khỏe thể chất
+    Peer_Relationships: '', quan hệ bạn bè
+    Social_Media_Activity: '', Hoạt động truyền thông xã hội
+    Academic_Pressure: '', Áp lực học thuật
+    Classroom_Behavior: '', Hành vi trên lớp học
+    Online_Posts_Sentiment: '', Tham gia các bài viết online
+    Journal_Entries_Sentiment: '', Tham gia vào các nhật kí online
+    Social_Media_Comments: '', Bình luận trên mạng xã hội
+    Negative_Interactions_Count: '', Các chữ tiêu cực
+    Positive_Interactions_Count: '', Các chữ tích cực
+    Frequency_of_Journal_Writing: '', Tần suất viết nhật ký
+    Writing_Style: '', Cách viết
+    Keywords_of_Concern: '', Từ khoá quan trọng
+    Text_Length: '' độ dài nhật kí
+
+    => Sau khi hoàn thành ấn submit hệ thống sẽ tự động đưa ra kết quả và phương pháp cải thiện
+
+
+    - Đến với tính năng tiếp theo Predict Dropout Risk ( Phân tích tỉ lệ bỏ học ):
+ Khi ấn vào web sẽ đưa các bạn tới đường link, tại đây các bạn có thể nhập các chỉ số như bên trong web :
+
+        Gender: giới tính
+        Year_of_Study: năm học sinh viên ( nếu còn là học sinh thì có thể nhập từ 1 - 4)
+        Attendance: Tỉ lệ có mặt trên lớp
+        Academic_Score: Điểm tổng cuối kì
+        Extracurricular_Activities: Hoạt động ngoại khóa
+        Social_Interactions: Giao tiếp xã hội 
+        Behavior_Issues: Hành vi trực tiếp
+        Stress_Level: Mức độ trầm cảm
+        Anxiety_Level: Mức độ lo lắng
+        Depression_Level: Mức độ trầm cảm khác
+        Family_Support: Gia đinh ủng hộ
+        Peer_Relationships: Mức độ quan hệ bạn bè
+        Social_Media_Activity: Hành vi tham gia vào mạng xã hội
+        Academic_Pressure: Áp lực học tập
+
+=> Sau khi hoàn thành ấn submit hệ thống sẽ tự động đưa ra kết quả và phương pháp cải thiện
+
+- Đến với tính năng thứ ba AI Diagnosis ( Chẩn đoán AI )
+
+Tại đây các bạn chỉ cần nhập cảm xúc và tỉ lệ bỏ học của bạn hoặc học sinh, AI sẽ trực tiếp đưa ra giải pháp cho bạn

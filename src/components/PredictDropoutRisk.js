@@ -1,6 +1,9 @@
-// src/PredictDropOutRisk.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { GoogleGenerativeAI } from '@google/generative-ai'; // Import thư viện
+import './PredictDropOutRisk.css'; // Import CSS file
+
+const API_KEY = 'AIzaSyD-erUujDwKAhBtrWCyWpE3guD5lelZMIw'; // Thay thế bằng API key của bạn
 
 const PredictDropOutRisk = () => {
     const [formData, setFormData] = useState({
@@ -21,6 +24,7 @@ const PredictDropOutRisk = () => {
     });
 
     const [prediction, setPrediction] = useState(null);
+    const [solution, setSolution] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -33,16 +37,36 @@ const PredictDropOutRisk = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            // Fetch the dropout risk prediction
             const response = await axios.post('http://localhost:8000/predict_dropoutrisk', formData);
-            setPrediction(response.data);
+            const predictionData = response.data;
+            setPrediction(predictionData);
+
+            
+            const genAI = new GoogleGenerativeAI(API_KEY);
+            const model = genAI.getGenerativeModel({
+                model: 'gemini-1.5-flash',
+                generationConfig: {
+                    candidateCount: 1,
+                    maxOutputTokens: 2000, 
+                    temperature: 0.1,
+                },
+            });
+
+            
+            const result = await model.generateContent(
+                `The dropout risk prediction is: ${JSON.stringify(predictionData)}, please provide some solutions the help student gets better ( output là tiếng việt)`
+            );
+
+            setSolution(result.response.text());
+
         } catch (error) {
-            console.error('Error fetching prediction:', error);
+            console.error('Error fetching prediction or solutions:', error);
         }
     };
 
     return (
         <div>
-           
             <form onSubmit={handleSubmit}>
                 <label>
                     Gender:
@@ -132,10 +156,18 @@ const PredictDropOutRisk = () => {
                 <br />
                 <button type="submit">Submit</button>
             </form>
+            
             {prediction && (
                 <div>
-                    <h2>Prediction Results:</h2>
+                    <h2>Kết quả dự đoán:</h2>
                     <pre>{JSON.stringify(prediction, null, 2)}</pre>
+                </div>
+            )}
+
+            {solution && (
+                <div className="solution-container">
+                    <h2>Giải pháp gợi ý từ AI:</h2>
+                    <pre>{solution}</pre>
                 </div>
             )}
         </div>

@@ -1,5 +1,4 @@
 /* src/pages/Home.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -7,6 +6,11 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+body {
+  background: #eee;
 }
 
 .container {
@@ -17,19 +21,20 @@
   justify-content: center;
   align-items: center;
   background-color: #27282c;
+  position: relative;
 }
 
 h1 {
-  color: white; /* Đặt màu chữ tiêu đề là trắng */
+  color: white;
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 30px;
-  z-index: 1; /* Đảm bảo tiêu đề không bị phủ bởi các phần tử khác */
+  z-index: 1;
 }
 
 .button-container {
   display: flex;
-  gap: 20px; /* Khoảng cách giữa các nút */
+  gap: 20px;
 }
 
 .button {
@@ -45,7 +50,7 @@ h1 {
   letter-spacing: 0.1rem;
   transition: 0.5s;
   z-index: 1;
-  background: #333; /* Nền của nút */
+  background: #333;
 }
 
 .button:hover {
@@ -61,7 +66,7 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #444; /* Nền khi hover */
+  background: #444;
   z-index: -1;
   transform: scale(0);
   transition: 0.5s;
@@ -148,4 +153,241 @@ h1 {
 
 .button:hover span:nth-child(4) {
   bottom: 50%;
+}
+
+.guide-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #444;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  text-shadow: 0 0 10px #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.guide-button:hover {
+  color: #fff;
+  background-color: #333;
+  border: 2px solid rgba(0, 0, 0, 0);
+  box-shadow: 0 0 10px #fff;
+}
+
+/* Animation example styles */
+.animation-example {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 90vmin;
+  width: 90vmin;
+}
+
+.animation-example .item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 50%;
+  width: 50%;
+  transform: translateX(-50%);
+  transform-origin: 50% 100%;
+  pointer-events: none;
+}
+
+.animation-example .item:nth-child(2) {
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.animation-example .item:nth-child(3) {
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.animation-example .item:nth-child(4) {
+  transform: translateX(-50%) rotate(270deg);
+}
+
+.animation-example .item .line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  height: 100%;
+  width: 2px;
+  transform-origin: bottom;
+  animation: lineAnimation 5s linear infinite;
+}
+
+.animation-example .item .line:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.animation-example .item .line:nth-child(2) {
+  animation-delay: 1.25s;
+}
+
+.animation-example .item .line:nth-child(3) {
+  animation-delay: 2.5s;
+}
+
+.animation-example .item .line:nth-child(4) {
+  animation-delay: 3.75s;
+}
+
+.animation-example .item .dot {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  transform: translate(-50%, -50%);
+  animation: dotAnimation 5s linear infinite;
+}
+
+.animation-example .item .dot:nth-child(2) {
+  animation-delay: 0s;
+}
+
+.animation-example .item .dot:nth-child(4) {
+  animation-delay: 1.25s;
+}
+
+.animation-example .item .dot:nth-child(6) {
+  animation-delay: 2.5s;
+}
+
+.animation-example .item .dot:nth-child(8) {
+  animation-delay: 3.75s;
+}
+
+.animation-example .item .circle {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 25%;
+  height: 25%;
+  transform: translate(-50%, -50%);
+  animation: circleAnimation 5s linear infinite;
+}
+
+.animation-example .item .circle:nth-child(3) {
+  animation-delay: 0s;
+}
+
+.animation-example .item .circle:nth-child(6) {
+  animation-delay: 1.25s;
+}
+
+.animation-example .item .circle:nth-child(9) {
+  animation-delay: 2.5s;
+}
+
+.animation-example .item .circle:nth-child(12) {
+  animation-delay: 3.75s;
+}
+
+@keyframes lineAnimation {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+@keyframes dotAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+@keyframes circleAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.center .circle {
+  width: 25px;
+  height: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  animation: circleAnimation 2s linear infinite;
+}
+
+.center .circle:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.center .circle:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.center .circle:nth-child(3) {
+  animation-delay: 1s;
+}
+.social-button-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.social-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.social-link {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.social-link:hover {
+  text-decoration: underline;
 }
