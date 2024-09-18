@@ -1,0 +1,138 @@
+/* src/components/GptDiagnosis.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #27282c;
+  color: #333;
+}
+
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Nút Submit */
+button {
+    appearance: none;
+    background: #950cde;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 500;
+    line-height: 1;
+    padding: 1em 1.5em;
+    border-radius: 4px;
+    position: relative;
+    transition: filter 0.3s, background 0.3s, box-shadow 0.3s;
+    font-size: 1rem;
+    display: block; /* Đảm bảo nút có kích thước phù hợp */
+    margin: 0 auto; /* Căn giữa theo chiều ngang */
+  }
+  
+  form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column; /* Căn chỉnh các phần tử theo chiều dọc */
+    align-items: center; /* Căn giữa các phần tử theo chiều ngang */
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+  
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    filter: brightness(1.1);
+    background: #850aaf;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  button:active {
+    filter: brightness(0.9);
+  }
+  
+  button > span {
+    display: block;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    z-index: 1;
+  }
+  
+  button:hover > span {
+    transform: scale(1.05);
+  }
+  
+  button:active > span {
+    transform: scale(0.95);
+  }
+  
+  .recommendation-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .recommendation-text {
+    white-space: pre-wrap; 
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+  }
