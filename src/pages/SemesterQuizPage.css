@@ -5,7 +5,7 @@
     padding: 20px;
     border: 2px solid #007bff; /* Khung viền màu xanh */
     border-radius: 8px; /* Bo góc khung */
-    background-color: #f9f9f9; /* Màu nền nhẹ nhàng */
+    background-color: #383838; /* Màu nền nhẹ nhàng */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ */
   }
   
@@ -20,7 +20,7 @@
   }
   
   .gpt-recommendation-container pre {
-    background-color: #f5f5f5;
+    background-color: #494646;
     padding: 10px;
     border: 1px solid #e1e1e1;
     border-radius: 4px;
