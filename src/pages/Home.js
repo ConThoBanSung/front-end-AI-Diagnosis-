@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css'; 
+import './Home.css';
 
 const Home = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
@@ -12,6 +12,7 @@ const Home = () => {
   return (
     <div className="container">
       <div className="animation-example">
+        {/* Animation items */}
         <div className="item">
           <div className="line"></div>
           <div className="dot"></div>
@@ -60,7 +61,7 @@ const Home = () => {
       </div>
       <h1>School Psychological Support System</h1>
       <div className="button-container">
-        <Link to="/predict-mental-health">
+        <Link to="/predict-mental-health" title="Dự đoán tâm lí sức khoẻ của bạn bằng trắc nghiệm">
           <div className="button">
             Predict Mental Health
             <span></span>
@@ -69,18 +70,18 @@ const Home = () => {
             <span></span>
           </div>
         </Link>
-        <Link to="/predict-dropout-risk">
+        <Link to="/GptDiagnosis" title="Đưa ra các biện pháp giúp bạn cải thiện sức khoẻ với tâm lí hiện tại của bạn">
           <div className="button">
-            Predict Dropout Risk
+            AI Diagnosis
             <span></span>
             <span></span>
             <span></span>
             <span></span>
           </div>
         </Link>
-        <Link to="/GptDiagnosis">
+        <Link to="/semester/:semester" title="Dự đoán tâm lí của bạn thông qua các quiz qua 6 học kì gần nhất">
           <div className="button">
-            AI Diagnosis
+            Semester Quiz Start
             <span></span>
             <span></span>
             <span></span>
@@ -91,7 +92,7 @@ const Home = () => {
       <a href="/huong_dan.txt" download className="guide-button">
         Hướng dẫn
       </a>
-      
+
       <div className="social-button-container">
         <button className="social-button" onClick={toggleSocialLinks}>
           Social

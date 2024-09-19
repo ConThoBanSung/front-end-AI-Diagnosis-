@@ -1,6 +1,8 @@
 // src/components/DiagnosisForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import './GptDiagnosis.css';
 
 const DiagnosisForm = () => {
@@ -63,7 +65,9 @@ const DiagnosisForm = () => {
       {recommendation && (
         <div className="recommendation-container">
           <h2>Recommendation:</h2>
-          <p className="recommendation-text">{recommendation}</p>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} className="recommendation-text">
+            {recommendation}
+          </ReactMarkdown>
         </div>
       )}
     </div>

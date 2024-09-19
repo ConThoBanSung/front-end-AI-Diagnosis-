@@ -1,0 +1,47 @@
+/* src/components/SemesterQuiz.css */
+
+/* Đặt tiêu đề ở giữa và đổi màu chữ thành trắng */
+.semester-quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa theo chiều ngang */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    min-height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+    background-color: #282c34; /* Màu nền tối để làm nổi bật chữ trắng */
+    padding: 20px; /* Padding xung quanh */
+  }
+  
+  .semester-quiz h2 {
+    color: rgb(255, 255, 255); /* Màu chữ trắng */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+  }
+  
+  /* Định kiểu cho các thẻ label và input trong form */
+  .semester-quiz label {
+    margin: 10px 0; /* Khoảng cách giữa các label */
+    color: rgb(0, 0, 0); /* Màu chữ trắng cho label */
+    display: block; /* Đảm bảo mỗi label nằm trên một dòng */
+  }
+  
+  .semester-quiz input,
+  .semester-quiz select {
+    
+    border: 1px solid #000000;
+    
+  }
+  
+  .semester-quiz button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #61dafb; /* Màu nền cho nút */
+    color: white; /* Màu chữ trắng cho nút */
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .semester-quiz button:hover {
+    background-color: #21a1f1; /* Màu nền khi hover */
+  }
+  
