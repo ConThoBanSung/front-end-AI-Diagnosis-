@@ -42,7 +42,7 @@ const PredictMentalHealth = () => {
     const email = localStorage.getItem('userEmail'); // Assuming user email is stored in localStorage
 
     try {
-      const response = await axios.post('http://localhost:8000/predict', {
+      const response = await axios.post('https://emotions-detect-through-student-mental.onrender.com/predict', {
         ...answers // Send all answers
       });
 
