@@ -1,11 +1,10 @@
-// src/PredictMentalHealth.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 import './PredictMentalHealth.css';  // Import CSS file
+import { db } from '../firebase';  // Import Firestore
+import { doc, setDoc } from 'firebase/firestore';  // Firestore functions
 
-// Define questions and options
 const questions = {
   'How often do you feel overwhelmed by your studies?': ['Never', 'Rarely', 'Sometimes', 'Often'],
   'Do you have difficulty sleeping due to stress?': ['Never', 'Rarely', 'Sometimes', 'Often'],
@@ -19,7 +18,6 @@ const questions = {
   'Do you feel that you have sufficient support from friends and family?': ['Never', 'Rarely', 'Sometimes', 'Often']
 };
 
-// Convert question to a key for state
 const convertQuestionToKey = (question) => {
   return question
     .replace(/[^a-zA-Z0-9]/g, '_')
@@ -32,7 +30,6 @@ const PredictMentalHealth = () => {
   const [prediction, setPrediction] = useState('');
   const [gptRecommendation, setGptRecommendation] = useState('');
 
-  // Handle form field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setAnswers(prevAnswers => ({
@@ -41,17 +38,33 @@ const PredictMentalHealth = () => {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const email = localStorage.getItem('userEmail');  // Lấy email trong hàm này
+
     try {
-      // Send data to API endpoint
       const response = await axios.post('http://localhost:8000/predict', answers);
-      
-      // Update prediction and GPT recommendation
+
+      // Cập nhật prediction và GPT recommendation từ phản hồi API
       setPrediction(response.data.prediction || 'No prediction available');
       setGptRecommendation(response.data.GPT_Recommendation || 'No recommendation available');
+
+      // Lưu email, prediction và recommendation vào Firestore
+      if (email) {
+        console.log("Email before saving to Firestore:", email);  // Log email before saving
+        const predictionDocRef = doc(db, 'predictions', email);  // Tạo document với email làm ID
+        await setDoc(predictionDocRef, {
+          email: email,
+          prediction: response.data.prediction,
+          recommendation: response.data.GPT_Recommendation,
+          timestamp: new Date()  
+        });
+        console.log("Document successfully written!");
+      } else {
+        console.error("Email is not defined.");  
+      }
+
     } catch (error) {
       console.error('Error submitting the form', error);
       setPrediction('Failed to submit the form.');

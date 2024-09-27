@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
+  const navigate = useNavigate();
+  
 
   const toggleSocialLinks = () => {
     setShowSocialLinks(!showSocialLinks);
   };
+  const handleLogout = () => {
+    localStorage.removeItem('userEmail'); // Xóa thông tin đăng nhập
+    navigate('/'); // Điều hướng lại trang chính
+  };
+  const isLoggedIn = localStorage.getItem('userEmail');
+
 
   return (
     <div className="container">
@@ -88,10 +96,30 @@ const Home = () => {
             <span></span>
           </div>
         </Link>
+        <Link to="/profile" title="Xem và cập nhật thông tin cá nhân">
+          <div className="button">
+            Profile
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </Link>
       </div>
       <a href="/huong_dan.txt" download className="guide-button">
         Hướng dẫn
       </a>
+      <div className="auth-button-container">
+        {isLoggedIn ? (
+          <button className="auth-button" onClick={handleLogout}>Đăng xuất</button>
+        ) : (
+          <>
+            <Link to="/login" className="auth-button">Đăng nhập</Link>
+            <Link to="/signup" className="auth-button">Đăng ký</Link>
+          </>
+        )}
+      </div>
+
 
       <div className="social-button-container">
         <button className="social-button" onClick={toggleSocialLinks}>

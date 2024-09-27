@@ -4,6 +4,11 @@ import Home from './pages/Home';
 import PredictMentalHealthPage from './pages/PredictMentalHealthPage';
 import GptDiagnosisPage from './pages/GptDiagnosisPage';
 import SemesterQuizPage from './pages/SemesterQuizPage';
+import PsychologyPredictor from './components/PsychologyPredictor';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Profile from './components/Profile';
+
 
 
 function App() {
@@ -14,6 +19,10 @@ function App() {
         <Route path="/predict-mental-health" element={<PredictMentalHealthPage />} />
         <Route path="/semester/:semester" element={<SemesterQuizPage />} />
         <Route path="/GptDiagnosis" element={<GptDiagnosisPage />} />
+        <Route path="/mental-teacher" element={<PsychologyPredictor />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );

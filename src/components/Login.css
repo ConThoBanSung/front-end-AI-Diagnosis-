@@ -1,0 +1,46 @@
+/* Login.css */
+
+.login-container {
+    max-width: 400px; /* Độ rộng tối đa cho container */
+    margin: 0 auto; /* Căn giữa */
+    padding: 20px; /* Khoảng cách bên trong */
+    border: 1px solid #ccc; /* Viền xung quanh */
+    border-radius: 8px; /* Bo tròn góc */
+    background-color: #f9f9f9; /* Màu nền */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+  }
+  
+  .login-header {
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+  }
+  
+  .auth-button {
+    width: 100%; /* Chiều rộng nút đầy đủ */
+    background-color: #302f2f; /* Màu nền xanh cho nút */
+    color: white; /* Màu chữ trắng */
+    border: none; /* Không viền */
+    border-radius: 100px; /* Bo tròn góc */
+    padding: 10px; /* Khoảng cách trong nút */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển động */
+  }
+  
+  .auth-button:hover {
+    background-color: #000000; /* Màu nền khi hover */
+  }
+  /* Login.css */
+
+/* Thêm quy tắc này để thay đổi màu chữ trong trường nhập */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  color: black; /* Đặt màu chữ là đen */
+  background-color: #f9f9f9; /* Có thể giữ màu nền như cũ */
+  border: 1px solid #ccc; /* Viền cho trường nhập */
+  border-radius: 4px; /* Bo tròn góc */
+  padding: 10px; /* Khoảng cách bên trong */
+  width: 100%; /* Chiều rộng đầy đủ */
+  margin-bottom: 15px; /* Khoảng cách giữa các trường */
+}
+

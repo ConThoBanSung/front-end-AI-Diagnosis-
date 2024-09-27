@@ -362,3 +362,34 @@ h1 {
 .social-link:hover {
   text-decoration: underline;
 }
+.auth-button-container {
+  display: flex;
+  flex-direction: row; /* Đặt hướng thành hàng */
+  position: absolute; /* Hoặc relative tùy thuộc vào cấu trúc layout của bạn */
+  bottom: 20px; /* Khoảng cách từ đáy */
+  left: 20px; /* Khoảng cách từ bên trái */
+  z-index: 10; /* Đảm bảo nó hiển thị trên tất cả */
+}
+
+.auth-button {
+  background-color: #272829; /* Màu nền */
+  color: rgb(0, 0, 0); /* Màu chữ */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 0 5px; /* Đặt khoảng cách giữa các nút */
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none; /* Bỏ gạch chân cho link */
+}
+
+.auth-button:hover {
+  background-color: #0056b3; /* Màu nền khi hover */
+}
+
+.social-button-container {
+  position: absolute;
+  bottom: 70px; /* Đặt cách nút auth */
+  left: 20px;
+  z-index: 10;
+}
