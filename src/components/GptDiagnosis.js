@@ -14,7 +14,7 @@ const DiagnosisForm = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8000/gpt_diagnosis', {
+      const response = await axios.post('https://emotions-detect-through-student-mental.onrender.com/gpt_diagnosis', {
         dropout_risk: dropoutRisk,
         emotion: emotion,
       });
