@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { signup } from '../services/authService';
+import axios from 'axios';  // Đảm bảo bạn đã cài axios
 import { useNavigate } from 'react-router-dom';  // Sử dụng useNavigate
 import './Signup.css';
 
@@ -10,16 +10,28 @@ const Signup = () => {
   const navigate = useNavigate();  // Khởi tạo useNavigate
 
   const handleSignup = async (e) => {
-    e.preventDefault();
+    e.preventDefault();  // Ngăn chặn hành vi mặc định của form
+    console.log(email, password)
     try {
-      const response = await signup(email, password);
-      setMessage(response.message);
-      // Chuyển hướng người dùng tới trang login sau khi đăng ký thành công
-      if (response.message === 'Đăng ký thành công!') {
+      const response = await axios.post('http://localhost:8000/signup', {
+        email: email,
+        password: password,
+        
+      });
+      
+
+      // Xử lý phản hồi thành công
+      setMessage(response.data.message);
+      if (response.data.message === 'Đăng ký thành công!') {
         navigate('/login');  // Chuyển hướng tới trang login
       }
     } catch (error) {
-      setMessage(error.detail || 'Đăng ký thất bại.');
+      // Xử lý lỗi
+      if (error.response) {
+        setMessage(error.response.data.detail || 'Đăng ký thất bại.');
+      } else {
+        setMessage('Đăng ký thất bại: Không thể kết nối đến máy chủ.');
+      }
     }
   };
 
@@ -46,8 +58,8 @@ const Signup = () => {
           />
         </div>
         <button className="auth-button">Đăng Ký</button>
-        </form>
-      {message && <p>{message}</p>}
+      </form>
+      {message && <p>{message}</p>} {/* Hiển thị thông điệp */}
     </div>
   );
 };

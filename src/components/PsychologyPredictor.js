@@ -51,6 +51,7 @@ const PsychologyPredictor = () => {
             setResponse(res.data.response);
         } catch (error) {
             console.error("Error sending data:", error);
+            setResponse("Có lỗi xảy ra. Vui lòng thử lại sau.");
         }
     };
 

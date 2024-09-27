@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 import './PredictMentalHealth.css';  // Import CSS file
-import { db } from '../firebase';  // Import Firestore
-import { doc, setDoc } from 'firebase/firestore';  // Firestore functions
 
 const questions = {
   'How often do you feel overwhelmed by your studies?': ['Never', 'Rarely', 'Sometimes', 'Often'],
@@ -41,28 +39,29 @@ const PredictMentalHealth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const email = localStorage.getItem('userEmail');  // Lấy email trong hàm này
+    const email = localStorage.getItem('userEmail'); // Assuming user email is stored in localStorage
 
     try {
-      const response = await axios.post('http://localhost:8000/predict', answers);
+      const response = await axios.post('http://localhost:8000/predict', {
+        ...answers // Send all answers
+      });
 
-      // Cập nhật prediction và GPT recommendation từ phản hồi API
       setPrediction(response.data.prediction || 'No prediction available');
       setGptRecommendation(response.data.GPT_Recommendation || 'No recommendation available');
 
-      // Lưu email, prediction và recommendation vào Firestore
+      // Save prediction to MongoDB
       if (email) {
-        console.log("Email before saving to Firestore:", email);  // Log email before saving
-        const predictionDocRef = doc(db, 'predictions', email);  // Tạo document với email làm ID
-        await setDoc(predictionDocRef, {
+        const predictionData = {
           email: email,
           prediction: response.data.prediction,
-          recommendation: response.data.GPT_Recommendation,
-          timestamp: new Date()  
-        });
-        console.log("Document successfully written!");
+          GPT_Recommendation: response.data.GPT_Recommendation,
+          timestamp: new Date().toISOString() // Use ISO format for the timestamp
+        };
+
+        await axios.post('http://localhost:8000/save_prediction', predictionData);
+        console.log("Prediction successfully saved to MongoDB!");
       } else {
-        console.error("Email is not defined.");  
+        console.error("Email is not defined.");
       }
 
     } catch (error) {
