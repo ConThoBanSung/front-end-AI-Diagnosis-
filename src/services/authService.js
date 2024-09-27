@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000';  // Change this URL to your backend's URL
+const API_URL = 'https://emotions-detect-through-student-mental.onrender.com';  // Change this URL to your backend's URL
 
 // Sign up a user
 export const signup = async (email, password) => {
