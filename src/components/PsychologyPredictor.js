@@ -46,7 +46,7 @@ const PsychologyPredictor = () => {
         e.preventDefault();
 
         try {
-            const res = await axios.post('http://localhost:8000/predict-psychology', studentData);
+            const res = await axios.post('https://emotions-detect-through-student-mental.onrender.com/predict-psychology', studentData);
             console.log("Response from server:", res.data);
             setResponse(res.data.response);
         } catch (error) {
